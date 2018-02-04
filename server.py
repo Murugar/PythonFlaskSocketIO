@@ -4,7 +4,7 @@ from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
 
-app.config[ 'SECRET_KEY' ] = 'asasdfoiuqehasdlfkjh'
+app.config[ 'SECRET_KEY' ] = 'topsecret'
 socketio = SocketIO( app )
 
 
@@ -14,7 +14,7 @@ def index():
 
 
 @socketio.on('my event')
-def handle_my_custom_event(json):
+def myevent(json):
     print('received message: ' + str(json))
     socketio.emit('my response', json)
 
